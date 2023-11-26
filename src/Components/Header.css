@@ -1,8 +1,44 @@
 :root {
   --background-color: #232f3e;
+  --bottom-bg-color: #123456;
+  --font-color-1: #ffffff;
 }
 
 .haeder {
   background-color: var(--background-color);
   padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.headerInputContainer {
+  display: flex;
+  flex-grow: 1;
+}
+
+.headerInput {
+  outline: none;
+  padding: 7px;
+  margin-left: 10px;
+  flex: 1;
+  border-radius: 5px;
+}
+
+.headerText {
+  font-size: 13px;
+  color: var(--font-color-1);
+}
+
+.headerBottom {
+  background-color: var(--bottom-bg-color);
+  padding: 5px;
+  height: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.headerBottomText {
+  color: var(--font-color-1);
+  padding-top: 2px;
 }
