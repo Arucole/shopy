@@ -29,7 +29,7 @@ function Header() {
         </div>
 
         <div>
-          <h4 className="headerText">Hello John</h4>
+          <h4 className="headerText">Hello Collins</h4>
           <h4 className="headerText">Accounts & Lists</h4>
         </div>
 

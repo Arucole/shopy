@@ -23,6 +23,9 @@ function ProductItem({ item }) {
           ? item.description.substr(0, 60)
           : item.description}
       </p>
+
+      <p>${item.price}</p>
+
       {/* Add to cart Button */}
       <button className="productItemButton">Add To Cart</button>
       {/* Buy Now Button */}
