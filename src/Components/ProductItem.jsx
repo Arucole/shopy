@@ -1,7 +1,22 @@
 import React from "react";
 import "./ProductItem.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../redux/CartSlice";
 
 function ProductItem({ item }) {
+  // access the cart
+  const cart = useSelector((state) => state.cart.cart);
+
+  const dispatch = useDispatch();
+
+  const addItemToCart = (item) => {
+    dispatch(addToCart(item));
+  };
+
+  const removeItemFromCart = (item) => {
+    dispatch(removeFromCart(item));
+  };
+
   return (
     <div className="productItem">
       {/* image */}
@@ -27,7 +42,22 @@ function ProductItem({ item }) {
       <p>${item.price}</p>
 
       {/* Add to cart Button */}
-      <button className="productItemButton">Add To Cart</button>
+      {cart.some((x) => x.id === item.id) ? (
+        <button
+          onClick={() => removeItemFromCart(item)}
+          className="productItemButton"
+        >
+          Remove From Cart
+        </button>
+      ) : (
+        <button
+          onClick={() => addItemToCart(item)}
+          className="productItemButton"
+        >
+          Add To Cart
+        </button>
+      )}
+
       {/* Buy Now Button */}
       <button className="productItemBuy">Buy Now</button>
     </div>
