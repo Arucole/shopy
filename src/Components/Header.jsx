@@ -3,8 +3,11 @@ import "./Header.css";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const cart = useSelector((state) => state.cart.cart);
+
   return (
     <>
       <div className="haeder">
@@ -38,7 +41,7 @@ function Header() {
           <h4 className="headerText">& Orders</h4>
         </div>
 
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative", cursor: "pointer" }}>
           <ShoppingCartOutlinedIcon style={{ color: "white" }} />
           <span
             style={{
@@ -54,7 +57,7 @@ function Header() {
               fontWeight: 400,
             }}
           >
-            0
+            {cart.length}
           </span>
         </div>
 
